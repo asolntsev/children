@@ -1,4 +1,4 @@
-package ee.children;
+package ee.children.web;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;

@@ -1,4 +1,4 @@
-package ee.children;
+package ee.children.web;
 
 import freemarker.template.Configuration;
 import freemarker.template.DefaultObjectWrapper;
@@ -26,7 +26,7 @@ abstract class BaseServlet extends HttpServlet {
 
     protected String getPersonCode(HttpServletRequest request) {
         HttpSession session = request.getSession(false);
-        return (String) session.getAttribute("person_code");
+        return ((String) session.getAttribute("person_code")).trim();
     }
 
     protected void render(String template, HttpServletResponse response, Object... parameters) throws IOException, ServletException {

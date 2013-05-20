@@ -16,6 +16,7 @@
       margin: 0 auto;
       max-width: 700px;
     }
+
     .container-narrow > hr {
       margin: 30px 0;
     }
@@ -25,10 +26,12 @@
       margin: 60px 0;
       text-align: center;
     }
+
     .jumbotron h1 {
       font-size: 72px;
       line-height: 1;
     }
+
     .jumbotron .btn {
       font-size: 21px;
       padding: 14px 24px;
@@ -38,6 +41,7 @@
     .marketing {
       margin: 60px 0;
     }
+
     .marketing p + h4 {
       margin-top: 28px;
     }
@@ -50,10 +54,10 @@
 
   <div class="masthead">
     <ul class="nav nav-pills pull-right">
-<#--
-      <li class="active"><a href="#">Home</a></li>
-      <li><a href="#">About</a></li>
--->
+    <#--
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+    -->
       <li><a href="/logout">Log out</a></li>
     </ul>
     <h3 class="muted">Children's garden</h3>
@@ -65,25 +69,28 @@
   <div class="row-fluid marketing">
     <div class="span6">
       <h4>Tallinna Lindakivi Lasteaed</h4>
+
       <p>Place: 112 / 126</p>
 
       <h4>Tallinna Arbu Lasteaed</h4>
+
       <p>Place: 89 / 100</p>
 
       <h4>Tallinna Lasteaed Kirsike</h4>
+
       <p>Place: 70 / 100</p>
     </div>
 
-    <#--<div class="span6">-->
-      <#--<h4>Subheading</h4>-->
-      <#--<p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>-->
-
-      <#--<h4>Subheading</h4>-->
-      <#--<p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>-->
-
-      <#--<h4>Subheading</h4>-->
-      <#--<p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>-->
-    <#--</div>-->
+    <#list childrenPositions?keys as childCode>
+      <div class="span6">
+        <h2>${childCode}</h2>
+        <#assign childPositions = childrenPositions[childCode]>
+        <#list childPositions as childPosition>
+          <h4>${childPosition.garden.name}</h4>
+          <p>Place: ${childPosition.place} / ${childPosition.queueSize}</p>
+        </#list>
+      </div>
+    </#list>
   </div>
 
   <hr>
