@@ -60,38 +60,42 @@
     -->
       <li><a href="/logout">Log out</a></li>
     </ul>
-    <h3 class="muted">Children's garden</h3>
+    <h3 class="muted">Children's gardens</h3>
     <h4 class="muted parent">Parent: ${person_code}</h4>
   </div>
 
-  <hr>
-
+<#--
   <div class="row-fluid marketing">
     <div class="span6">
       <h4>Tallinna Lindakivi Lasteaed</h4>
-
       <p>Place: 112 / 126</p>
 
       <h4>Tallinna Arbu Lasteaed</h4>
-
       <p>Place: 89 / 100</p>
 
       <h4>Tallinna Lasteaed Kirsike</h4>
-
       <p>Place: 70 / 100</p>
     </div>
+  </div>
+-->
 
-    <#list childrenPositions?keys as childCode>
+  <hr>
+
+  <#list childrenPositions?keys as childCode>
+    <div class="row-fluid marketing">
       <div class="span6">
-        <h2>${childCode}</h2>
+        <h4>${childCode}</h4>
+      </div>
+
+      <div class="span6">
         <#assign childPositions = childrenPositions[childCode]>
         <#list childPositions as childPosition>
           <h4>${childPosition.garden.name}</h4>
           <p>Place: ${childPosition.place} / ${childPosition.queueSize}</p>
         </#list>
       </div>
-    </#list>
-  </div>
+    </div>
+  </#list>
 
   <hr>
 
