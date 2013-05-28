@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-public class LogoutSpec {
+public class LogoutSpec extends AbstractUITest {
     @Test
     public void userCanLogout() {
         open("/logout");

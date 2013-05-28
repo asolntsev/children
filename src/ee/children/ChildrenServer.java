@@ -9,17 +9,42 @@ import org.eclipse.jetty.servlet.ServletContextHandler;
 import static org.eclipse.jetty.servlet.ServletContextHandler.SESSIONS;
 
 public class ChildrenServer {
-  public static void main(String[] args) throws Exception {
-    Server server = new Server(8080);
+  private Server jetty;
+
+  public void start(int port) throws Exception {
+    jetty = new Server(port);
     ServletContextHandler context = new ServletContextHandler(SESSIONS);
     context.setResourceBase("web");
     context.addServlet(Login.class, "/login");
     context.addServlet(Logout.class, "/logout");
     context.addServlet(Dashboard.class, "/dashboard");
     context.addServlet(org.eclipse.jetty.servlet.DefaultServlet.class, "/*");
-    server.setHandler(context);
+    jetty.setHandler(context);
 
-    server.start();
-    server.join();
+    addShutdownHook();
+    jetty.start();
+  }
+
+  public void stop() {
+    if (jetty != null) {
+      try {
+        jetty.stop();
+      } catch (Exception e) {
+        e.printStackTrace();
+      }
+    }
+  }
+
+  private void addShutdownHook() {
+    Runtime.getRuntime().addShutdownHook(new Thread() {
+      @Override
+      public void run() {
+        ChildrenServer.this.stop();
+      }
+    });
+  }
+
+  public static void main(String[] args) throws Exception {
+    new ChildrenServer().start(8080);
   }
 }

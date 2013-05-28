@@ -7,7 +7,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-public class LoginSpec {
+public class LoginSpec extends AbstractUITest {
     @Test
     public void userCanLoginByPersonCode() {
         open("/login");
