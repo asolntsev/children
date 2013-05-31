@@ -3,3 +3,5 @@ bin
 out
 .gradle
 build
+chromedriver.log
+.settings
