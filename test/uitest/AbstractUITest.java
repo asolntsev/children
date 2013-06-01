@@ -16,7 +16,7 @@ public class AbstractUITest {
   public static void runServer() throws Exception {
     if (server == null) {
       server = new ChildrenServer();
-      String port = System.getProperty("http.port", "8888");
+      String port = System.getProperty("http.port", "8081");
       server.start(parseInt(port));
       Configuration.baseUrl = "http://localhost:" + port;
     }
