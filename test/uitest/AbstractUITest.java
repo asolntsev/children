@@ -1,11 +1,13 @@
 package uitest;
 
+import com.codeborne.selenide.Configuration;
 import ee.children.ChildrenServer;
 import org.junit.BeforeClass;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
+import static java.lang.Integer.parseInt;
 
 public class AbstractUITest {
   private static ChildrenServer server;
@@ -14,7 +16,9 @@ public class AbstractUITest {
   public static void runServer() throws Exception {
     if (server == null) {
       server = new ChildrenServer();
-      server.start(8080);
+      String port = System.getProperty("http.port", "8888");
+      server.start(parseInt(port));
+      Configuration.baseUrl = "http://localhost:" + port;
     }
   }
 
