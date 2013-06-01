@@ -3,19 +3,19 @@ package ee.children.model;
 import java.util.*;
 
 public class ParentChildRepository {
-  private final Map<String, Set<String>> parentChildren = new HashMap<String, Set<String>>();
+  private final Set<ParentChild> parentChildren = new HashSet<ParentChild>();
 
   public Set<String> children(String parentCode) {
-    if (!parentChildren.containsKey(parentCode)) {
-      return Collections.emptySet();
+    Set<String> children = new HashSet<String>(5);
+    for (ParentChild parentChild : parentChildren) {
+      if (parentChild.parentCode.equals(parentCode)) {
+        children.add(parentChild.childCode);
+      }
     }
-    return parentChildren.get(parentCode);
+    return children;
   }
 
-  public void registerChild(String parentCode, String childCode) {
-    if (!parentChildren.containsKey(parentCode)) {
-      parentChildren.put(parentCode, new LinkedHashSet<String>(3));
-    }
-    parentChildren.get(parentCode).add(childCode);
+  public void register(String parentCode, String childCode) {
+    parentChildren.add(new ParentChild(parentCode, childCode));
   }
 }

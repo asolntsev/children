@@ -15,7 +15,7 @@ import java.util.Map;
 import java.util.Set;
 
 public class Dashboard extends BaseServlet {
-  ParentChildRepository parentChildRepository = new ParentChildRepository();
+  ParentChildRepository parentChildren = new ParentChildRepository();
   QueueRepository queueRepository = new QueueRepository();
 
   @Override
@@ -24,10 +24,10 @@ public class Dashboard extends BaseServlet {
     ChildrensGarden g2 = new ChildrensGarden(2, "Tallinna Arbu Lasteaed");
     ChildrensGarden g3 = new ChildrensGarden(3, "Tallinna Lasteaed Kirsike");
 
-    parentChildRepository.registerChild("3", "1111111111");
-    parentChildRepository.registerChild("4", "1111111111");
-    parentChildRepository.registerChild("3", "2222222222");
-    parentChildRepository.registerChild("3", "3333333333");
+    parentChildren.register("3", "1111111111");
+    parentChildren.register("4", "1111111111");
+    parentChildren.register("3", "2222222222");
+    parentChildren.register("3", "3333333333");
 
     queueRepository.add("1111111111", g1);
     queueRepository.add("1111111111", g2);
@@ -50,7 +50,7 @@ public class Dashboard extends BaseServlet {
   }
 
   private Map<String, List<ChildPosition>> childrenPositions(String parentCode) {
-    Set<String> children = parentChildRepository.children(parentCode);
+    Set<String> children = parentChildren.children(parentCode);
     final Map<String, List<ChildPosition>> result = new LinkedHashMap<String, List<ChildPosition>>();
 
     for (String childCode : children) {

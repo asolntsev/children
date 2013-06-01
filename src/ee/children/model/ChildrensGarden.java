@@ -2,7 +2,7 @@ package ee.children.model;
 
 public class ChildrensGarden {
   long id;
-  private String name;
+  private final String name;
 
   public ChildrensGarden(long id, String name) {
     this.id = id;
