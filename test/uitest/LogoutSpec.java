@@ -7,19 +7,14 @@ import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
 
 public class LogoutSpec extends AbstractUITest {
-    @Test
-    public void userCanLogout() {
-        open("/logout");
-        open("/login");
-        $(By.name("person_code"))
-                .setValue("38106080010")
-                .pressEnter();
+  @Test
+  public void userCanLogout() {
+    loginAsParent();
 
-        $(By.linkText("Log out")).click();
-        $(".parent").shouldNot(exist);
-        $(byText("Please sign in")).shouldBe(visible);
-    }
+    $(By.linkText("Log out")).click();
+    $(".parent").shouldNot(exist);
+    $(byText("Please sign in")).shouldBe(visible);
+  }
 }

@@ -3,7 +3,7 @@ package ee.children.model;
 import java.util.*;
 
 public class QueueRepository {
-  public Map<Long, GardenQueue> gardens = new HashMap<Long, GardenQueue>();
+  public Map<Integer, GardenQueue> gardens = new HashMap<Integer, GardenQueue>();
 
   public void add(String childCode, ChildrensGarden garden) {
     GardenQueue gardenQueue = gardens.get(garden.id);

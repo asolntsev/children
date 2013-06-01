@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Children's garden</title>
+  <title>Children's gardens</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
 
@@ -58,6 +58,7 @@
           <li class="active"><a href="#">Home</a></li>
           <li><a href="#">About</a></li>
     -->
+      <li><a href="/registration">Register child</a></li>
       <li><a href="/logout">Log out</a></li>
     </ul>
     <h3 class="muted">Children's gardens</h3>
@@ -81,17 +82,18 @@
 
   <hr>
 
+  <#if childrenPositions?size=0><div class="no-children"> You have no children yet. Do something!</div></#if>
   <#list childrenPositions?keys as childCode>
     <div class="row-fluid marketing">
-      <div class="span6">
+      <div class="span6 child_code">
         <h4>${childCode}</h4>
       </div>
 
       <div class="span6">
         <#assign childPositions = childrenPositions[childCode]>
         <#list childPositions as childPosition>
-          <h4>${childPosition.garden.name}</h4>
-          <p>Place: ${childPosition.place} / ${childPosition.queueSize}</p>
+          <h4 class="garden">${childPosition.garden.name}</h4>
+          <p class="place">Place: ${childPosition.place} / ${childPosition.queueSize}</p>
         </#list>
       </div>
     </div>

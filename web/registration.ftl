@@ -44,9 +44,18 @@
 <div class="container">
 
   <form class="form-signin" method="post">
-    <h2 class="form-signin-heading">Please sign in</h2>
-    <input name="person_code" type="text" class="input-block-level" placeholder="Person code" autofocus="">
-    <button class="btn btn-large btn-primary" type="submit">Sign in</button>
+    <h2 class="form-signin-heading">Child person code</h2>
+    <input name="child_code" type="text" class="input-block-level" placeholder="Person code" autofocus="">
+
+    <#list [1, 2, 3] as gardenOrderNumber>
+      <select name="garden">
+        <option value="0">-- Choose the garden #${gardenOrderNumber} --</option>
+        <#list childrensGardens as garden>
+          <option value="${garden.id}">${garden.name}</option>
+        </#list>
+      </select>
+    </#list>
+    <button class="btn btn-large btn-primary" type="submit">Register</button>
   </form>
 
 </div>

@@ -3,6 +3,7 @@ package ee.children;
 import ee.children.web.Dashboard;
 import ee.children.web.Login;
 import ee.children.web.Logout;
+import ee.children.web.Registration;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 
@@ -17,8 +18,11 @@ public class ChildrenServer {
     context.setResourceBase("web");
     context.addServlet(Login.class, "/login");
     context.addServlet(Logout.class, "/logout");
-    context.addServlet(Dashboard.class, "/dashboard");
-    context.addServlet(org.eclipse.jetty.servlet.DefaultServlet.class, "/*");
+    context.addServlet(Registration.class, "/registration");
+    context.addServlet(Dashboard.class, "/");
+    context.addServlet(org.eclipse.jetty.servlet.DefaultServlet.class, "/img/*");
+    context.addServlet(org.eclipse.jetty.servlet.DefaultServlet.class, "/css/*");
+    context.addServlet(org.eclipse.jetty.servlet.DefaultServlet.class, "/js/*");
     jetty.setHandler(context);
 
     addShutdownHook();

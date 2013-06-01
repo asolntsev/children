@@ -1,8 +1,5 @@
 package ee.children.web;
 
-import ee.children.model.ChildrensGarden;
-import ee.children.model.ParentChildRepository;
-import ee.children.model.QueueRepository;
 import ee.children.model.QueueRepository.ChildPosition;
 
 import javax.servlet.ServletException;
@@ -15,26 +12,21 @@ import java.util.Map;
 import java.util.Set;
 
 public class Dashboard extends BaseServlet {
-  ParentChildRepository parentChildren = new ParentChildRepository();
-  QueueRepository queueRepository = new QueueRepository();
-
   @Override
   public void init() throws ServletException {
-    ChildrensGarden g1 = new ChildrensGarden(1, "Tallinna Lindakivi Lasteaed");
-    ChildrensGarden g2 = new ChildrensGarden(2, "Tallinna Arbu Lasteaed");
-    ChildrensGarden g3 = new ChildrensGarden(3, "Tallinna Lasteaed Kirsike");
+/*
+    parentChildren.register("parent:3", "1111111111");
+    parentChildren.register("parent:4", "1111111111");
+    parentChildren.register("parent:3", "2222222222");
+    parentChildren.register("parent:3", "3333333333");
 
-    parentChildren.register("3", "1111111111");
-    parentChildren.register("4", "1111111111");
-    parentChildren.register("3", "2222222222");
-    parentChildren.register("3", "3333333333");
-
-    queueRepository.add("1111111111", g1);
-    queueRepository.add("1111111111", g2);
-    queueRepository.add("1111111111", g3);
-    queueRepository.add("2222222222", g2);
-    queueRepository.add("2222222222", g3);
-    queueRepository.add("3333333333", g3);
+    queueRepository.add("1111111111", childrensGardens.get(1));
+    queueRepository.add("1111111111", childrensGardens.get(2));
+    queueRepository.add("1111111111", childrensGardens.get(3));
+    queueRepository.add("2222222222", childrensGardens.get(2));
+    queueRepository.add("2222222222", childrensGardens.get(3));
+    queueRepository.add("3333333333", childrensGardens.get(3));
+*/
   }
 
   @Override
