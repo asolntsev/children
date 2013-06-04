@@ -48,12 +48,7 @@
     <input name="child_code" type="text" class="input-block-level" placeholder="Person code" autofocus="">
 
     <#list [1, 2, 3] as gardenOrderNumber>
-      <select name="garden">
-        <option value="0">-- Choose the garden #${gardenOrderNumber} --</option>
-        <#list childrensGardens as garden>
-          <option value="${garden.id}">${garden.name}</option>
-        </#list>
-      </select>
+      -- Choose the garden #${gardenOrderNumber} -- <br/>
     </#list>
     <button class="btn btn-large btn-primary" type="submit">Register</button>
   </form>
