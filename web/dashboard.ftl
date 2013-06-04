@@ -54,10 +54,6 @@
 
   <div class="masthead">
     <ul class="nav nav-pills pull-right">
-    <#--
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-    -->
       <li><a href="/registration">Register child</a></li>
       <li><a href="/logout">Log out</a></li>
     </ul>
@@ -83,15 +79,14 @@
   <hr>
 
   <#if childrenPositions?size=0><div class="no-children"> You have no children yet. Do something!</div></#if>
-  <#list childrenPositions?keys as childCode>
+  <#list childrenPositions as child>
     <div class="row-fluid marketing">
       <div class="span6 child_code">
-        <h4>${childCode}</h4>
+        <h4>${child.childCode}</h4>
       </div>
 
       <div class="span6">
-        <#assign childPositions = childrenPositions[childCode]>
-        <#list childPositions as childPosition>
+        <#list child.childPositions as childPosition>
           <h4 class="garden">${childPosition.garden.name}</h4>
           <p class="place">Place: ${childPosition.place} / ${childPosition.queueSize}</p>
         </#list>
