@@ -19,8 +19,8 @@ public class Login extends BaseServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        final String personCode = request.getParameter("person_code");
-        final HttpSession session = request.getSession(true);
+        String personCode = request.getParameter("person_code");
+        HttpSession session = request.getSession(true);
         session.setAttribute("person_code", personCode);
         response.sendRedirect("/dashboard");
     }

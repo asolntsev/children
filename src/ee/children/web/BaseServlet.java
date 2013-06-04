@@ -1,8 +1,6 @@
 package ee.children.web;
 
 import ee.children.model.ChildrensGardenRepository;
-import ee.children.model.ParentChildRepository;
-import ee.children.model.QueueRepository;
 import freemarker.template.Configuration;
 import freemarker.template.DefaultObjectWrapper;
 import freemarker.template.TemplateException;
@@ -23,8 +21,6 @@ import static javax.servlet.http.HttpServletResponse.SC_OK;
 
 abstract class BaseServlet extends HttpServlet {
   protected static ChildrensGardenRepository childrensGardens = new ChildrensGardenRepository();
-  protected static ParentChildRepository parentChildren = new ParentChildRepository();
-  protected static QueueRepository queueRepository = new QueueRepository();
 
   protected boolean isLoggedIn(HttpServletRequest request) {
     HttpSession session = request.getSession(false);

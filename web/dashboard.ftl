@@ -61,7 +61,6 @@
     <h4 class="muted parent">Parent: ${person_code}</h4>
   </div>
 
-<#--
   <div class="row-fluid marketing">
     <div class="span6">
       <h4>Tallinna Lindakivi Lasteaed</h4>
@@ -74,25 +73,6 @@
       <p>Place: 70 / 100</p>
     </div>
   </div>
--->
-
-  <hr>
-
-  <#if childrenPositions?size=0><div class="no-children"> You have no children yet. Do something!</div></#if>
-  <#list childrenPositions as child>
-    <div class="row-fluid marketing">
-      <div class="span6 child_code">
-        <h4>${child.childCode}</h4>
-      </div>
-
-      <div class="span6">
-        <#list child.childPositions as childPosition>
-          <h4 class="garden">${childPosition.garden.name}</h4>
-          <p class="place">Place: ${childPosition.place} / ${childPosition.queueSize}</p>
-        </#list>
-      </div>
-    </div>
-  </#list>
 
   <hr>
 
