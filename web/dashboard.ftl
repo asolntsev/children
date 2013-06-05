@@ -21,15 +21,18 @@
   </div>
 
   <#list childrenStates as childState>
+    <hr/>
     <h5 class="muted">Child: ${childState.childCode}</h5>
-    <div class="row-fluid marketing">
-      <div class="span6">
-        <#list childState.queues as queue>
-          <h4>${queue.kindergarten.name}</h4>
+    <#list childState.queues as queue>
+      <div class="row-fluid">
+        <div class="span6">
+          <p>${queue.kindergarten.name}</p>
+        </div>
+        <div class="span3" style="text-align: right; vertical-align: text-bottom;">
           <p>Place: ${queue.position}</p>
-        </#list>
+        </div>
       </div>
-    </div>
+    </#list>
   </#list>
 
   <hr>
