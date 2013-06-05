@@ -1,12 +1,17 @@
 package ee.children.model;
 
+import javax.inject.Inject;
+import javax.inject.Singleton;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Singleton
 public class QueueRepository {
-  private KindergartenRepository kindergartens = new KindergartenRepository();
+  @Inject
+  private KindergartenRepository kindergartens;
+
   private final Map<Integer, List<String>> queues = new HashMap<Integer, List<String>>();
 
   public void enqueue(Integer kindergartenId, String childCode) {

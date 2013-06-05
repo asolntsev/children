@@ -1,9 +1,11 @@
 package ee.children.model;
 
+import javax.inject.Singleton;
 import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+@Singleton
 public class KindergartenRepository {
   private Map<Integer, Kindergarten> kindergartens = new LinkedHashMap<Integer, Kindergarten>();
 

@@ -1,7 +1,9 @@
 package ee.children.model;
 
+import javax.inject.Singleton;
 import java.util.*;
 
+@Singleton
 public class ParentChildRepository {
   private final Map<String, List<String>> parentChildren = new HashMap<String, List<String>>();
 

@@ -1,12 +1,13 @@
 package ee.children.web;
 
 import ee.children.model.KindergartenRepository;
-import ee.children.model.QueueRepository;
 import ee.children.model.ParentChildRepository;
+import ee.children.model.QueueRepository;
 import freemarker.template.Configuration;
 import freemarker.template.DefaultObjectWrapper;
 import freemarker.template.TemplateException;
 
+import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -22,9 +23,12 @@ import java.util.Map;
 import static javax.servlet.http.HttpServletResponse.SC_OK;
 
 abstract class BaseServlet extends HttpServlet {
-  protected static KindergartenRepository kindergartens = new KindergartenRepository();
-  protected static ParentChildRepository parentChildren = new ParentChildRepository();
-  protected static QueueRepository queue = new QueueRepository();
+  @Inject
+  protected static KindergartenRepository kindergartens;
+  @Inject
+  protected static ParentChildRepository parentChildren;
+  @Inject
+  protected static QueueRepository queue;
 
   protected boolean isLoggedIn(HttpServletRequest request) {
     HttpSession session = request.getSession(false);
