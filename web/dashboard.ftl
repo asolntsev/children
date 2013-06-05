@@ -20,18 +20,17 @@
     <h4 class="muted parent">Parent: ${person_code}</h4>
   </div>
 
-  <div class="row-fluid marketing">
-    <div class="span6">
-      <h4>Tallinna Lindakivi Lasteaed</h4>
-      <p>Place: 112 / 126</p>
-
-      <h4>Tallinna Arbu Lasteaed</h4>
-      <p>Place: 89 / 100</p>
-
-      <h4>Tallinna Lasteaed Kirsike</h4>
-      <p>Place: 70 / 100</p>
+  <#list childrenStates as childState>
+    <h5 class="muted">Child: ${childState.childCode}</h5>
+    <div class="row-fluid marketing">
+      <div class="span6">
+        <#list childState.queues as queue>
+          <h4>${queue.kindergarten.name}</h4>
+          <p>Place: ${queue.position}</p>
+        </#list>
+      </div>
     </div>
-  </div>
+  </#list>
 
   <hr>
 

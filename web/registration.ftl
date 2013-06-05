@@ -12,10 +12,15 @@
 
   <form class="form-signin" method="post">
     <h2 class="form-signin-heading">Child person code</h2>
-    <input name="child_code" type="text" class="input-block-level" placeholder="Person code" autofocus="">
+    <input name="child_code" type="text" class="input-block-level" placeholder="Child code" autofocus="">
 
     <#list [1, 2, 3] as priority>
-      -- Choose the kindergarten #${priority} -- <br/>
+      <select name="kindergarten">
+        <option value="0">-- Choose priority #${priority} -- </option>
+        <#list kindergartens as kindergarten>
+          <option value="${kindergarten.id}">${kindergarten.name}</option>
+        </#list>
+      </select>
     </#list>
     <button class="btn btn-large btn-primary" type="submit">Register</button>
   </form>

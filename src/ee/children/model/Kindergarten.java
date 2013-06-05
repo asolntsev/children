@@ -1,7 +1,7 @@
 package ee.children.model;
 
 public class Kindergarten {
-  final int id;
+  private final int id;
   private final String name;
 
   public Kindergarten(int id, String name) {
@@ -15,5 +15,10 @@ public class Kindergarten {
 
   public String getName() {
     return name;
+  }
+
+  @Override
+  public String toString() {
+    return getClass().getSimpleName() + " {" + name + "}";
   }
 }
