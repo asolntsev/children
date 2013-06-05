@@ -22,13 +22,13 @@
 
   <#list childrenStates as childState>
     <hr/>
-    <h5 class="muted">Child: ${childState.childCode}</h5>
+    <h5 class="muted child">Child: ${childState.childCode}</h5>
     <#list childState.queues as queue>
       <div class="row-fluid">
-        <div class="span6">
+        <div class="span6 kindergarten">
           <p>${queue.kindergarten.name}</p>
         </div>
-        <div class="span3" style="text-align: right; vertical-align: text-bottom;">
+        <div class="span3 position" style="text-align: right; vertical-align: text-bottom;">
           <p>Place: ${queue.position}</p>
         </div>
       </div>
