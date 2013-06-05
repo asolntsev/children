@@ -1,4 +1,4 @@
 children
 ========
 
-Children's garden web application
+kindergarten web application

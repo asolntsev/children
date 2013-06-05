@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Children's gardens</title>
+  <title>kindergartens</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
 
@@ -47,8 +47,8 @@
     <h2 class="form-signin-heading">Child person code</h2>
     <input name="child_code" type="text" class="input-block-level" placeholder="Person code" autofocus="">
 
-    <#list [1, 2, 3] as gardenOrderNumber>
-      -- Choose the garden #${gardenOrderNumber} -- <br/>
+    <#list [1, 2, 3] as priority>
+      -- Choose the kindergarten #${priority} -- <br/>
     </#list>
     <button class="btn btn-large btn-primary" type="submit">Register</button>
   </form>

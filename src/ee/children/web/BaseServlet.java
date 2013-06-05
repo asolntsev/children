@@ -1,6 +1,6 @@
 package ee.children.web;
 
-import ee.children.model.ChildrensGardenRepository;
+import ee.children.model.KindergartenRepository;
 import freemarker.template.Configuration;
 import freemarker.template.DefaultObjectWrapper;
 import freemarker.template.TemplateException;
@@ -20,7 +20,7 @@ import java.util.Map;
 import static javax.servlet.http.HttpServletResponse.SC_OK;
 
 abstract class BaseServlet extends HttpServlet {
-  protected static ChildrensGardenRepository childrensGardens = new ChildrensGardenRepository();
+  protected static KindergartenRepository kindergartens = new KindergartenRepository();
 
   protected boolean isLoggedIn(HttpServletRequest request) {
     HttpSession session = request.getSession(false);

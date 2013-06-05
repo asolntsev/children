@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Children's gardens</title>
+  <title>kindergartens</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+  <link href="css/kindergarten.css" rel="stylesheet" media="screen">
 
   <style type="text/css">
     body {
@@ -57,7 +58,7 @@
       <li><a href="/registration">Register child</a></li>
       <li><a href="/logout">Log out</a></li>
     </ul>
-    <h3 class="muted">Children's gardens</h3>
+    <h3 class="muted">Kindergartens</h3>
     <h4 class="muted parent">Parent: ${person_code}</h4>
   </div>
 
@@ -77,7 +78,8 @@
   <hr>
 
   <div class="footer">
-    <p>&copy; Andrei Solntsev 2013</p>
+    <#--<p>&copy; Andrei Solntsev 2013</p>-->
+    <img src="img/kindergarten.gif" width="300px"/>
   </div>
 
 </div>

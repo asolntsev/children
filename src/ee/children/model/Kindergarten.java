@@ -1,10 +1,10 @@
 package ee.children.model;
 
-public class ChildrensGarden {
+public class Kindergarten {
   final int id;
   private final String name;
 
-  public ChildrensGarden(int id, String name) {
+  public Kindergarten(int id, String name) {
     this.id = id;
     this.name = name;
   }

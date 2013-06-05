@@ -10,6 +10,6 @@ public class Registration extends BaseServlet {
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     String parentCode = getPersonCode(request);
     render("registration.ftl", response, "person_code", parentCode,
-        "childrensGardens", childrensGardens.getChildrenGardens());
+        "kindergartens", kindergartens.all());
   }
 }
