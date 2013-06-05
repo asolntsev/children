@@ -11,7 +11,7 @@ import static com.codeborne.selenide.Selenide.$;
 public class LogoutSpec extends AbstractUITest {
   @Test
   public void userCanLogout() {
-    loginAsParent();
+    loginAsParent("38106080010");
 
     $(By.linkText("Log out")).click();
     $(".parent").shouldNot(exist);

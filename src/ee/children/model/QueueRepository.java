@@ -35,4 +35,8 @@ public class QueueRepository {
     }
     return result;
   }
+
+  public void deleteAll() {
+    queues.clear();
+  }
 }

@@ -20,4 +20,8 @@ public class ParentChildRepository {
     }
     return parentChildren.get(parentCode);
   }
+
+  public void deleteAll() {
+    parentChildren.clear();
+  }
 }

@@ -29,7 +29,6 @@ public class ChildrenServer {
     put("/js/*", DefaultServlet.class);
   }};
 
-  private Injector injector = Guice.createInjector(new ChildrenModule());
   private Server jetty;
 
   public void start(int port) throws Exception {
@@ -65,10 +64,11 @@ public class ChildrenServer {
   }
 
   public static void main(String[] args) throws Exception {
-    new ChildrenServer().start(8080);
+    Injector injector = Guice.createInjector(new ChildrenModule());
+    injector.getInstance(ChildrenServer.class).start(8080);
   }
 
-  private class ChildrenModule extends AbstractModule {
+  public static class ChildrenModule extends AbstractModule {
     @Override
     protected void configure() {
       for (Class<? extends HttpServlet> servletClass : mappings.values()) {
