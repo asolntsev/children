@@ -1,6 +1,7 @@
 package uitest;
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.junit.ScreenShooter;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import ee.children.ChildrenServer;
@@ -9,13 +10,18 @@ import ee.children.model.ParentChildRepository;
 import ee.children.model.QueueRepository;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Rule;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.junit.ScreenShooter.failedTests;
 import static java.lang.Integer.parseInt;
 
 public class AbstractUITest {
+  @Rule
+  public ScreenShooter screenShooter = failedTests();
+
   private static Injector injector;
   private static ChildrenServer server;
 
