@@ -14,12 +14,25 @@ public class Login extends BaseServlet {
             return;
         }
 
-        render("login.html", response);
+        render("login.html", response, "message", "", "person_code", "");
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String personCode = request.getParameter("person_code");
+        String personCode = request.getParameter("person_code").trim();
+
+        if (personCode.length() == 0) {
+          render("login.html", response, "person_code", personCode,
+              "message", "Person code is required");
+          return;
+        }
+      if (!personCode.matches("\\d{11}"))
+      {
+        render("login.html", response, "person_code", personCode,
+            "message", "Person code shall contains 11 numbers");
+        return;
+      }
+
         HttpSession session = request.getSession(true);
         session.setAttribute("person_code", personCode);
         response.sendRedirect("/dashboard");

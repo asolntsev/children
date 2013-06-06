@@ -9,9 +9,11 @@
 <body>
 <div class="container">
 
+  <div class="message">${message}</div>
   <form class="form-signin" method="post">
     <h2 class="form-signin-heading">Please sign in</h2>
-    <input name="person_code" type="text" class="input-block-level" placeholder="Person code" autofocus="">
+    <input name="person_code" type="text" value="${person_code}"
+           class="input-block-level" placeholder="Person code" autofocus="">
     <button class="btn btn-large btn-primary" type="submit">Sign in</button>
   </form>
 
